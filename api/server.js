@@ -11,6 +11,10 @@ app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
+
+app.get('/', (req, res) => {
+    res.send('ola mundo')
+})
 app.use('/auth', routesAuth);
 app.use('/register', routesRegister);
 app.use('/login', routesLogin);
