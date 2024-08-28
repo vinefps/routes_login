@@ -7,12 +7,12 @@ const prisma = new PrismaClient();
 
 router.post('/', async (req, res) => {
     try {
-        const { user, password, email } = req.body;
+        const { name, password, email } = req.body;
         const hashedPassword = await bcrypt.hash(password, 10);
 
         const newUser = await prisma.user.create({
             data: {
-                user: user,
+                name: name,
                 password: hashedPassword,
                 email: email,
             },
