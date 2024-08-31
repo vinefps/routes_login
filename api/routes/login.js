@@ -20,7 +20,7 @@ router.post('/', async (req, res) => {
 
             if (match) {
                 const token = jwt.sign({ id: foundUser.id }, process.env.JWT_SECRET, { expiresIn: '1h' });
-                res.status(200).json({ message: 'Login realizado com sucesso', token });
+                res.status(200).json({ message: 'Login realizado com sucesso', token, name:foundUser.name });
             } else {
                 res.status(401).send('Falha no login');
             }
